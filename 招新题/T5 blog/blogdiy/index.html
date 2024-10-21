@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rickey's blog</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    <!--背景图片-->
+    <div class="background">
+    <!--标题区域-->
+    <div class="headline">
+    <h1><b>Rickey's blog</b></h1>
+    </div>
+    
+    <!--自我介绍小卡片
+        在鼠标悬停时有互动
+        侧边固定位置-->
+    <div class="selfintro">
+        <h2>About me:</h2>
+        <span id="headpicad"><img src="./headpic.jpg" alt="" id="headpic"></span><br>
+        姓名：李祥瑞<br>性别：男 <br>生日:12.13 <br>English Name: Rickey Lee <br>
+    </div>
+    <!--学习资源小卡片
+        鼠标悬停时有互动
+        包含资源超链接
+        侧边固定位置-->
+    <div class="tools">
+        <h2>Learning tools:</h2>
+        <div class="toollist1">
+            三件套基础入门视频：<a href="https://www.bilibili.com/video/BV1BT4y1W7Aw/?spm_id_from=333.999.0.0&vd_source=ad0f6c28cfec03a7ba88584192d110ae" target="_blank">B站罗大富</a>
+        </div>
+        <div class="toollist">
+            JavaScript快速入门: <a href="https://liaoxuefeng.com/books/javascript/introduction/index.html" target="_blank">廖雪峰JS教程</a>
+        </div>
+        <div class="toollist">
+            炫酷的CSS: <a href="https://www.bilibili.com/video/BV1oz411v7TK/?spm_id_from=333.880.my_history.page.click&vd_source=ad0f6c28cfec03a7ba88584192d110ae" target="_blank">B站CSS教程</a>
+        </div>
+        <div class="toollist">待完善...</div>
+        <div class="toollist">...</div>
+    </div>
+    <!--主要内容区
+        左栏为日志
+        右栏为歌曲分享等
+        右栏实现了audio音乐播放以及图片鼠标悬停互动-->
+    <div class="content">
+    <div class="diary">
+        <h3>My Diary</h3>
+        <h3>2024/10/21</h3>
+        <p id="diary">
+            version：1.0 <br>
+            写一下今天的感受：做这个blog真的是想死的心都有了，真的做了很久很久，因为一些之前自学的东西又忘记了，然后还去复习；最搞笑的是最开始以为要部署出去，还去学了一个多小时怎么用hexo之类的，结果学长告诉我要用原生三件套，天都塌了...不过做出来还是很欣喜的嘿嘿（我今天第一次提交看看可以得多少分哈...虽然这里面并没有用JS...我还不太会把JS跟其他两个结合起来说实话，我后面会学的）</p>
+    </div>
+    <div class="ts">
+        <h3>Taylor Swift Latest</h3>
+        <p><b>This part will mainly show the latest news about Taylor Swift and the songs I am listening recently.</b></p>
+        <p id="ts"> 2024/10/21 <br>
+                    Song today:Need(demo) <br>
+                    Good Lyrics: <br>
+                    Passion is a passing thing,
+                    It's accidental chemistry,<br>
+                    Lust is a liar, a short-lived fire,<br>
+                    It ain't what you and I are at all,<br>
+                    Oh, it's a need, it's a need,<br>
+                    I would go anywhere that you lead,<br>
+                    I am hopeless, breathless, burning slow,<br>
+                    Touch me, hold me, tell me, "I won't let you go",<br>
+                    I won't leave, it's a need.</p>
+                    <img src="./need.jpg" alt="" id="need">
+                    <audio src="./Need.mp3" controls></audio>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
