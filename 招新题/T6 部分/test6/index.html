@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="area">
+        <img src="./img/EDG.png" alt="" class="EDG">
+        <img src="./img/FPX.png" alt="" class="FPX">
+        <img src="./img/TE.png" alt="" class="TE">
+        <img src="./img/BLG.png" alt="" class="BLG">
+    </div>
+    <div id="bottom">
+        <input type="button" value="开始支持投票" style="display: block;margin: auto; margin-top: 30px;height: 30px;">
+    </div>
+
+    <script>
+        //对除script外的改动：调整了style.css中img的position-->relative
+        //点击后出现投票加载动画
+        $('[type=button]').on('click',function(){
+        //通过jQ获得area下的战队数量
+        let img=$('div#area>img');
+        let amount=img.length;
+        console.log(amount);
+        //获得排序倒数第三低
+        let a1=amount-3;
+        let a=[];
+        let i=0,j=0;
+        let max=0;
+        //清空数列
+        for (i=0;i<amount;i++){
+            a[i]=0
+        }
+        //室友一：排序奇数票数加一
+        for (i=0;i<amount;i++){
+            if(i%2==0){
+            a[i]++
+        }
+        }
+        //查看投票情况
+        console.log(a);
+        //室友二：排序倒数第三票数加一
+        a[amount-3]++
+        //查看投票情况
+        console.log(a);
+        //获得img父集
+        var parent=document.getElementById('area');
+        //利用jQ获得EDG
+        let jjn=$('.EDG');
+        console.log(jjn[0]);
+        //室友三：EDG票数加一
+        for(i=0;i<amount;i++){
+            if(parent.children[i]==jjn[0]){
+                a[i]++;
+            }
+        }
+        //查看投票情况
+        console.log(a);
+        //室友四：票数最多排序最前票数加一
+        for(i=1;i<amount;i++){
+            if(a[i]>a[i-1]){
+                max=a[i];
+            }
+            else if(a[i-1]>=max){
+                max=a[i-1];
+            }
+            else {
+                max=max;
+            }
+        }
+        for(i=0;i<amount;i++){
+            if(a[i]==max){
+                a[i]++;
+                break;
+            }
+        }
+        //查看投票情况
+        console.log(a)
+        //利用jQ按排序获得战队
+        let FirstVote=$('.EDG');
+        let SecondVote=$('.FPX');
+        let ThirdVote=$('.TE');
+        let FourthVote=$('.BLG');
+        //根据票数移动
+        FirstVote.animate({
+            left:'+='+a[0]*100+'px'
+        },2000);
+        SecondVote.animate({
+            left:'+='+a[1]*100+'px'
+        },2000);
+        ThirdVote.animate({
+            left:'+='+a[2]*100+'px'
+        },2000)
+        FourthVote.animate({
+            left:'+='+a[3]*100+'px'
+        },2000)
+        //获得票数最高者
+        for(i=0;i<amount;i++){
+            if(a[i]==max+1){
+                break;
+            }
+        }
+        //显示winner
+        let winner=parent.children[i].cloneNode(true)
+        $('#bottom').append(winner)
+        })
+    </script>
+    
+</body>
+</html>
